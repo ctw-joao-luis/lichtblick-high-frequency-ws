@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+  foxglove_bridge:
+    build: .
+    container_name: foxglove_bridge
+    network_mode: host          # required for ROS 2 DDS discovery
+    ipc: host                   # shared memory transport (zero-copy at high Hz)
+    environment:
+      - ROS_DOMAIN_ID=0
+      - RCUTILS_LOGGING_MIN_SEVERITY=INFO
+    ports:
+      - "8765:8765"             # Foxglove Studio WebSocket
+    restart: unless-stopped
