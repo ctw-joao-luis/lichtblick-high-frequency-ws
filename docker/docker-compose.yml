@@ -1,5 +1,3 @@
-version: "3.9"
-
 services:
   foxglove_bridge:
     build:
@@ -12,6 +10,7 @@ services:
       - ROS_DOMAIN_ID=0
       - RCUTILS_LOGGING_MIN_SEVERITY=INFO
       - FREQUENCY=${FREQUENCY}
+      - NUM_TOPICS=${NUM_TOPICS}
     ports:
       - "8765:8765"             # Foxglove Studio WebSocket
     restart: unless-stopped

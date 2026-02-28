@@ -1,6 +1,7 @@
 #!/bin/bash
 
 FREQUENCY=100
+NUM_TOPICS=1
 
 show_help() {
     echo "Usage:
@@ -8,12 +9,13 @@ show_help() {
 
 Options:
        -f, --frequency    Frequency of messages in Hz (default: 100)
-       -n, --num-topics   Number of topics to publish (not implemented yet)
+       -n, --num-topics   Number of topics to publish (default: 1)
        -h, --help         Show this help message and exit
     "
 }
 
 while [[ $# -gt 0 ]]; do
+   echo "Processing argument: $1"
    case $1 in
       -f=*|--frequency=*)
          FREQUENCY="${1#*=}"
@@ -34,4 +36,4 @@ while [[ $# -gt 0 ]]; do
    esac
 done
 
-FREQUENCY=$FREQUENCY docker compose -f ./docker/docker-compose.yml up --build
+FREQUENCY=$FREQUENCY NUM_TOPICS=$NUM_TOPICS docker compose -f ./docker/docker-compose.yml up --build

@@ -3,6 +3,7 @@ set -e
 
 # Default frequency
 FREQUENCY=${FREQUENCY}
+NUM_TOPICS=${NUM_TOPICS}
 
 # Source ROS 2
 source /opt/ros/humble/setup.bash
@@ -30,13 +31,13 @@ BRIDGE_PARAMS=(
 # ── Optional: built-in high-frequency demo publisher ─────────
 # Publishes std_msgs/Float64 at 200 Hz on /high_freq_topic.
 # Replace or remove this block when using your own data source.
-python3 /python/HiFreqPub.py --frequency $FREQUENCY &
+python3 /python/HiFreqPub.py --frequency $FREQUENCY --num-topics $NUM_TOPICS &
 
 PUBLISHER_PID=$!
 
 # ── Launch Foxglove Bridge ────────────────────────────────────
 echo "[entrypoint] Starting foxglove_bridge on port 8765 ..."
-echo "[entrypoint] Publishing demo data at ${FREQUENCY} Hz on /high_freq_topic ..."
+echo "[entrypoint] Publishing demo data at ${FREQUENCY} Hz on ${NUM_TOPICS} topic(s) ..."
 ros2 run foxglove_bridge foxglove_bridge "${BRIDGE_PARAMS[@]}" &
 BRIDGE_PID=$!
 
