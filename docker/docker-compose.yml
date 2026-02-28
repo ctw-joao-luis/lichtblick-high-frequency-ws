@@ -4,13 +4,12 @@ services:
       context: ..
       dockerfile: docker/Dockerfile
     container_name: foxglove_bridge
-    network_mode: host          # required for ROS 2 DDS discovery
-    ipc: host                   # shared memory transport (zero-copy at high Hz)
+    network_mode: host          
+    ipc: host                   
     environment:
       - ROS_DOMAIN_ID=0
       - RCUTILS_LOGGING_MIN_SEVERITY=INFO
       - FREQUENCY=${FREQUENCY}
       - NUM_TOPICS=${NUM_TOPICS}
     ports:
-      - "8765:8765"             # Foxglove Studio WebSocket
-    restart: unless-stopped
+      - "8765:8765"             

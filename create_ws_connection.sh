@@ -37,3 +37,4 @@ while [[ $# -gt 0 ]]; do
 done
 
 FREQUENCY=$FREQUENCY NUM_TOPICS=$NUM_TOPICS docker compose -f ./docker/docker-compose.yml up --build
+docker compose -f ./docker/docker-compose.yml down
