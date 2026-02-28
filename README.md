@@ -7,7 +7,7 @@ A Dockerized [Foxglove Bridge](https://github.com/foxglove/ros-foxglove-bridge) 
 ## 🚀 Quick Start
 
 ```bash
-# Default (100 Hz)
+# Default (100 Hz & 1 topic)
 bash create_ws_connection.sh
 
 # Custom frequency
@@ -23,6 +23,8 @@ ws://localhost:8765
 ```
 
 Subscribe to `/high_freq_topic_{topic-number}` to see the built-in sine wave demo.
+
+_**NOTE:** Container will remove itself on exit._
 
 ---
 
