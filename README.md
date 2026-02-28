@@ -28,7 +28,7 @@ Subscribe to `/high_freq_topic` to see the built-in sine wave demo.
 |---|---|---|---|
 | `--help` | `-h` | — | Explains how to use the commands |
 | `--frequency` | `-f` | `200` | Publisher frequency in Hz |
-| `--num-topics` | `-n` | — | Number of topics to publish |
+| `--num-topics` | `-n` | `1` | Number of topics to publish |
 
 ---
 
