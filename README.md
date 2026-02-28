@@ -14,11 +14,15 @@ bash create_ws_connection.sh
 bash create_ws_connection.sh --frequency=500
 bash create_ws_connection.sh -f=500
 
+# Custom number of topics
+bash create_ws_connection.sh --num-topics=5
+bash create_ws_connection.sh -n=5
+
 # Then open Lichtblick and connect to:
 ws://localhost:8765
 ```
 
-Subscribe to `/high_freq_topic` to see the built-in sine wave demo.
+Subscribe to `/high_freq_topic_{topic-number}` to see the built-in sine wave demo.
 
 ---
 
