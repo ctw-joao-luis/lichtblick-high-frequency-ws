@@ -1,6 +1,9 @@
 #!/bin/bash
 set -e
 
+# Default frequency
+FREQUENCY=${FREQUENCY}
+
 # Source ROS 2
 source /opt/ros/humble/setup.bash
 
@@ -27,34 +30,13 @@ BRIDGE_PARAMS=(
 # ── Optional: built-in high-frequency demo publisher ─────────
 # Publishes std_msgs/Float64 at 200 Hz on /high_freq_topic.
 # Replace or remove this block when using your own data source.
-python3 - <<'PYEOF' &
-import rclpy
-from rclpy.node import Node
-from std_msgs.msg import Float64
-import time, math
-
-class HiFreqPub(Node):
-    def __init__(self):
-        super().__init__('hi_freq_publisher')
-        self.pub = self.create_publisher(Float64, '/high_freq_topic', 100)
-        # 200 Hz  →  timer period = 0.005 s
-        self.timer = self.create_timer(0.005, self.publish_cb)
-        self.t0 = time.time()
-
-    def publish_cb(self):
-        msg = Float64()
-        msg.data = math.sin(2 * math.pi * (time.time() - self.t0))
-        self.pub.publish(msg)
-
-rclpy.init()
-node = HiFreqPub()
-rclpy.spin(node)
-PYEOF
+python3 /scripts/HiFreqPub.py --frequency $FREQUENCY &
 
 PUBLISHER_PID=$!
 
 # ── Launch Foxglove Bridge ────────────────────────────────────
 echo "[entrypoint] Starting foxglove_bridge on port 8765 ..."
+echo "[entrypoint] Publishing demo data at ${FREQUENCY} Hz on /high_freq_topic ..."
 ros2 run foxglove_bridge foxglove_bridge "${BRIDGE_PARAMS[@]}" &
 BRIDGE_PID=$!
 

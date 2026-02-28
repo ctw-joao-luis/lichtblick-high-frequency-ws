@@ -25,7 +25,8 @@ WORKDIR /ros2_ws
 # RUN . /opt/ros/humble/setup.sh && colcon build --symlink-install
 
 # ── Entrypoint script ────────────────────────────────────────
-COPY entrypoint.sh /entrypoint.sh
+COPY /entrypoint.sh /entrypoint.sh
+COPY /scripts/HiFreqPub.py /scripts/HiFreqPub.py
 RUN chmod +x /entrypoint.sh
 
 EXPOSE 8765
