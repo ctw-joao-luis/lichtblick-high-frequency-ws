@@ -30,7 +30,7 @@ BRIDGE_PARAMS=(
 # ── Optional: built-in high-frequency demo publisher ─────────
 # Publishes std_msgs/Float64 at 200 Hz on /high_freq_topic.
 # Replace or remove this block when using your own data source.
-python3 /scripts/HiFreqPub.py --frequency $FREQUENCY &
+python3 /python/HiFreqPub.py --frequency $FREQUENCY &
 
 PUBLISHER_PID=$!
 

@@ -26,7 +26,7 @@ WORKDIR /ros2_ws
 
 # ── Entrypoint script ────────────────────────────────────────
 COPY /entrypoint.sh /entrypoint.sh
-COPY /scripts/HiFreqPub.py /scripts/HiFreqPub.py
+COPY /python/HiFreqPub.py /python/HiFreqPub.py
 RUN chmod +x /entrypoint.sh
 
 EXPOSE 8765

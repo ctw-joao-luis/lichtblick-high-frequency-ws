@@ -19,4 +19,4 @@ while [[ $# -gt 0 ]]; do
    esac
 done
 
-FREQUENCY=$FREQUENCY docker compose -f ../docker/docker-compose.yml up --build
+FREQUENCY=$FREQUENCY docker compose -f ./docker/docker-compose.yml up --build
