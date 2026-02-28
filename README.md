@@ -1,31 +1,18 @@
-# Foxglove Bridge — High-Frequency Docker Setup
+# High-Frequency WS Connection Setup
 
 A Dockerized [Foxglove Bridge](https://github.com/foxglove/ros-foxglove-bridge) for ROS 2 Humble that streams topics at **>60 Hz** over WebSocket to [Lichtblick](https://github.com/Lichtblick-Suite/lichtblick).
-
----
-
-## 📦 What's Inside
-
-| File | Purpose |
-|---|---|
-| `docker/Dockerfile` | Builds the ROS 2 Humble image with `foxglove_bridge` installed |
-| `docker/docker-compose.yml` | Convenience wrapper with host networking and IPC settings |
-| `entrypoint.sh` | Launches the bridge + an optional demo publisher |
-| `scripts/HiFreqPub.py` | Demo publisher that publishes a sine wave at the configured frequency |
-| `scripts/create_ws_connection.sh` | Entry script to build and run the container with customizable options |
 
 ---
 
 ## 🚀 Quick Start
 
 ```bash
-# Default (200 Hz)
-bash scripts/create_ws_connection.sh
+# Default (100 Hz)
+bash create_ws_connection.sh
 
 # Custom frequency
-bash scripts/create_ws_connection.sh --frequency=500
-bash scripts/create_ws_connection.sh -f=500
-bash scripts/create_ws_connection.sh -f 500
+bash create_ws_connection.sh --frequency=500
+bash create_ws_connection.sh -f=500
 
 # Then open Lichtblick and connect to:
 ws://localhost:8765
@@ -39,8 +26,9 @@ Subscribe to `/high_freq_topic` to see the built-in sine wave demo.
 
 | Flag | Short | Default | Description |
 |---|---|---|---|
+| `--help` | `-h` | — | Explains how to use the commands |
 | `--frequency` | `-f` | `200` | Publisher frequency in Hz |
-| `--num-topics` | `-n` | — | Number of topics to publish |
+| `--num-topics` | `-n` | — | Number of topics to publish (not available yet) |
 
 ---
 

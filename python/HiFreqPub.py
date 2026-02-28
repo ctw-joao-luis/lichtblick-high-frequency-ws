@@ -21,7 +21,7 @@ class HiFreqPub(Node):
 
 
 parser = argparse.ArgumentParser()
-parser.add_argument("-f", "--frequency", type=float, help="Frequency of messages in Hz", default=200.0)
+parser.add_argument("-f", "--frequency", type=float, help="Frequency of messages in Hz", default=100.0)
 args = parser.parse_args()
 
 rclpy.init()

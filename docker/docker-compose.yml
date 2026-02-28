@@ -11,7 +11,7 @@ services:
     environment:
       - ROS_DOMAIN_ID=0
       - RCUTILS_LOGGING_MIN_SEVERITY=INFO
-      - FREQUENCY=${FREQUENCY:-200}  # Default to 200 Hz if not set
+      - FREQUENCY=${FREQUENCY}
     ports:
       - "8765:8765"             # Foxglove Studio WebSocket
     restart: unless-stopped
