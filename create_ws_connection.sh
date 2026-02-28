@@ -8,8 +8,8 @@ show_help() {
        bash create_ws_connection.sh -f <frequency> -n <num_topics>
 
 Options:
-       -f, --frequency    Frequency of messages in Hz (default: 100)
-       -n, --num-topics   Number of topics to publish (default: 1)
+       -f, --frequency    Frequency of messages in Hz, if left unspecified defaults to 100 Hz
+       -n, --num-topics   Number of topics to publish, if left unspecified defaults to 1
        -h, --help         Show this help message and exit
     "
 }
