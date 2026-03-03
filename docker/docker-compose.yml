@@ -3,8 +3,7 @@ services:
     build:
       context: ..
       dockerfile: docker/Dockerfile
-    container_name: foxglove_bridge
-    network_mode: host          
+    container_name: foxglove_bridge        
     ipc: host                   
     environment:
       - ROS_DOMAIN_ID=0

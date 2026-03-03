@@ -58,13 +58,6 @@ Replace the demo publisher block in `entrypoint.sh` with your own node or launch
 ros2 launch my_package my_launch.py &
 ```
 
-To build a custom ROS 2 package into the image, uncomment these lines in the `Dockerfile`:
-
-```dockerfile
-COPY src/ /ros2_ws/src/
-RUN . /opt/ros/humble/setup.sh && colcon build --symlink-install
-```
-
 ---
 
 ## 📝 Notes
