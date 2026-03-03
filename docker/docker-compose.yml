@@ -6,7 +6,7 @@ services:
     container_name: foxglove_bridge
     # network_mode: host is not used to allow port mapping for the WebSocket server
     # however since in windows and macOS docker runs in a VM, network_mode: host is not supported 
-    # so we use ipc: host to allow ROS 2 communication between the container and the host
+    # so we use default port mapping that works across all platforms.
     # network_mode: host          
     ipc: host                   
     environment:
