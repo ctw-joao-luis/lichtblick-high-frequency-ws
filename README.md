@@ -38,6 +38,21 @@ _**NOTE:** Container will remove itself on exit._
 
 ---
 
+## Plot panel topics
+
+Added dummy four dummy waveforms at a fixed rate so the Lichtblick Plot panel always has something to visualise.
+
+All topics use `std_msgs/Float64`. Add `<topic>.data` as the message path in the Plot panel.
+
+| Topic | Signal | Range |
+|---|---|---|
+| `/plot_test/sine` | sin(2π t) | –1 … 1 |
+| `/plot_test/cosine` | cos(2π t) | –1 … 1 |
+| `/plot_test/sawtooth` | Sawtooth, period 1 s | –1 … 1 |
+| `/plot_test/square` | Square wave, period 1 s | –1 or 1 |
+
+---
+
 ## ⚙️ High-Frequency Tuning
 
 The bridge is pre-configured for high-throughput streaming:
